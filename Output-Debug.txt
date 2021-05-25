@@ -1,0 +1,86 @@
+﻿'matTest.exe' (Win32): Loaded 'C:\Users\XingJin\Documents\Visual Studio 2015\Projects\matTest\x64\Debug\matTest.exe'. Symbols loaded.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140d.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmx.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\Windows\System32\ucrtbased.dll'
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmat.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwi18n.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwmfl_permute.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libut.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwmfl_permute.dll'
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\Windows\System32\advapi32.dll'
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwfl.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwfl.dll'
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwfoundation_usm.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwfoundation_usm.dll'
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwindexingapimethods.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwindexingapimethods.dll'
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\mwboost_system-vc141-mt-1_65_1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\mwboost_log-vc141-mt-1_65_1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\icuuc61.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\psapi.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\ws2_32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\tbbmalloc.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\zlib1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\hdf5.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\Program Files\MatLab\R2019b\bin\win64\hdf5.dll'
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwresource_core.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\mwboost_filesystem-vc141-mt-1_65_1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwcpp11compat.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwcpp11compat.dll'
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\mwboost_thread-vc141-mt-1_65_1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\mwboost_date_time-vc141-mt-1_65_1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\programs\oraX64\12.1.0.2.0.x64\bin\libexpat.dll'. Module was built without symbols.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\icuio61.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Unloaded 'C:\programs\oraX64\12.1.0.2.0.x64\bin\libexpat.dll'
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\mpr.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\icuin61.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\secur32.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140_1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\icudt61.dll'. Module was built without symbols.
+'matTest.exe' (Win32): Unloaded 'C:\Program Files\MatLab\R2019b\bin\win64\icudt61.dll'
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\dbghelp.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\sspicli.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\mwboost_chrono-vc141-mt-1_65_1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwmfl_permute.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwfoundation_usm.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwfl.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwindexingapimethods.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\hdf5.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\icudt61.dll'. Module was built without symbols.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\libmwcpp11compat.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\programs\oraX64\12.1.0.2.0.x64\bin\libexpat.dll'. Module was built without symbols.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\powrprof.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\mwboost_serialization-vc141-mt-1_65_1.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Program Files\MatLab\R2019b\bin\win64\tbb.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\msvcr120.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\umpdc.dll'. Cannot find or open the PDB file.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. Cannot find or open the PDB file.
+Exception thrown at 0x00007FF8C09AD759 in matTest.exe: Microsoft C++ exception: foundation::core::except::detail::AnonymousInternalException<foundation::usm::NoActiveContextTypeError> at memory location 0x000000F479AFF118.
+Exception thrown at 0x00007FF8C09AD759 in matTest.exe: Microsoft C++ exception: foundation::core::except::detail::AnonymousInternalException<foundation::usm::NoActiveContextTypeError> at memory location 0x000000F479AFF118.
+'matTest.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. Cannot find or open the PDB file.
+The thread 0x5570 has exited with code 0 (0x0).
+The thread 0x5168 has exited with code 0 (0x0).
+The thread 0x3748 has exited with code 0 (0x0).
+The program '[9504] matTest.exe' has exited with code 0 (0x0).
