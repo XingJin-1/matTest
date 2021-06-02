@@ -355,6 +355,14 @@ map <wstring, wstring> construct_overall_meta_data(mxArray *pMxArrayMeta) {
 	// mxGetN(pMxArrayMiddle) is 2
 	pMxArrayMiddle = mxGetField(pMxArrayMeta, 0, "sw");
 
+	// check the dimension of meta.sw dynamically 
+	int dimension_sw = mxGetN(pMxArrayMiddle);
+	for (int i = 0; i < dimension_sw; i++) {
+		pMxArrayAssign = mxGetField(pMxArrayMiddle, i, "name");
+		ws_assign = mat_read_string(pMxArrayAssign);
+		overall_meta_data[L"sw_name" + to_wstring(i)] = ws_assign;
+	}
+	/*
 	pMxArrayAssign = mxGetField(pMxArrayMiddle, 0, "name");
 	ws_assign = mat_read_string(pMxArrayAssign);
 	overall_meta_data[L"sw_name1"] = ws_assign;
@@ -362,7 +370,7 @@ map <wstring, wstring> construct_overall_meta_data(mxArray *pMxArrayMeta) {
 	pMxArrayAssign = mxGetField(pMxArrayMiddle, 1, "name");
 	ws_assign = mat_read_string(pMxArrayAssign);
 	overall_meta_data[L"sw_name2"] = ws_assign;
-
+	*/
 	// -----------------------------------------------end: get metadata from meta.sw-----------------------------------------------
 	overall_meta_data[L"testunit_version"] = L"1";
 
@@ -527,13 +535,22 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 			// !!!have to know the type of the current cell : cellArrayData
 			cellArrayData = mxGetCell(pMxArrayDataSubset, row_index);
 
+			if (cellArrayData == NULL) {
+				int nRows = 0;
+				int nCols = 0;
+				cout << "Processing data part" << endl;
+				// type_indicator_int: indicates whether it is #variables or test data
+				type_indicator_int = 1;
+			}
+			else {
+				int nRows = mxGetM(cellArrayData);
+				int nCols = mxGetN(cellArrayData);
+				cout << "nRows:" << nRows << endl;
+				cout << "nCols:" << nCols << endl;
+				// type_indicator_int: indicates whether it is #variables or test data
+				type_indicator_int = check_data_type(cellArrayData);
+			}
 			// dimension of the current cell 
-			int nRows = mxGetM(cellArrayData);
-			int nCols = mxGetN(cellArrayData);
-			cout << "nRows:" << nRows << endl;
-			cout << "nCols:" << nCols << endl;
-			// type_indicator_int: indicates whether it is #variables or test data
-			type_indicator_int = check_data_type(cellArrayData);
 
 			//current row is #variables
 			if (type_indicator_int == 2) {
