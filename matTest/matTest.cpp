@@ -38,7 +38,6 @@ vector<wstring>get_corresponding_files(vector<wstring> file_match_conditions, ve
 		// add one more condition for matching Report-Picture or Report-waveform names
 		num_of_conds_in_filename++;
 		int num_of_conds_matched = 0;
-		
 		for (auto file_match_cond : file_match_conditions) {
 			// make change in order to align with ending 0s              111111111111111
 			if (file_match_cond.find(L"=") != wstring::npos) {
@@ -48,7 +47,8 @@ vector<wstring>get_corresponding_files(vector<wstring> file_match_conditions, ve
 					file_match_cond.erase(pos_last_non_zero_digit + 1, file_match_cond.length() - 2);
 				}
 				else {
-					file_match_cond.erase(pos_decimal_symbol, file_match_cond.length() - 1);
+					if (pos_decimal_symbol != -1)
+						file_match_cond.erase(pos_decimal_symbol, file_match_cond.length() - 1);
 				}
 			}
 
@@ -116,7 +116,6 @@ vector<wstring> getAllFilesInDir(const wstring &dirPath, const wstring &fileExt)
 	}
 	return listOfFiles;
 }
-
 
 wstring strrep(wstring line, char from, char to) {
 	for (auto i = 0; i < line.size(); i++) {
@@ -334,10 +333,13 @@ map <wstring, wstring> construct_overall_meta_data(mxArray *pMxArrayMeta) {
 	ws_assign = mat_read_string(pMxArrayAssign);
 	overall_meta_data[L"username"] = ws_assign;
 
+	//overall_meta_data[L"user"] = overall_meta_data[L"username"];
+
 	pMxArrayAssign = mxGetField(pMxArrayMiddle, 0, "user_email_address");
 	ws_assign = mat_read_string(pMxArrayAssign);
 	overall_meta_data[L"email"] = ws_assign;
 
+	/*
 	pMxArrayAssign = mxGetField(pMxArrayMiddle, 0, "Jama");
 	pMxArrayAssign = mxGetField(pMxArrayAssign, 0, "api_id");
 	ws_assign = mat_read_string(pMxArrayAssign);
@@ -347,6 +349,20 @@ map <wstring, wstring> construct_overall_meta_data(mxArray *pMxArrayMeta) {
 	pMxArrayAssign = mxGetField(pMxArrayAssign, 0, "global_id");
 	ws_assign = mat_read_string(pMxArrayAssign);
 	overall_meta_data[L"global_id"] = ws_assign;
+	*/
+	pMxArrayAssign = mxGetField(pMxArrayMiddle, 0, "Jama");
+	pMxArrayAssign = mxGetField(pMxArrayAssign, 0, "a");
+	pMxArrayAssign = mxGetField(pMxArrayAssign, 0, "api_id");
+	ws_assign = mat_read_string(pMxArrayAssign);
+	overall_meta_data[L"api_id"] = ws_assign;
+
+	pMxArrayAssign = mxGetField(pMxArrayMiddle, 0, "Jama");
+	pMxArrayAssign = mxGetField(pMxArrayAssign, 0, "a");
+	pMxArrayAssign = mxGetField(pMxArrayAssign, 0, "global_id");
+	ws_assign = mat_read_string(pMxArrayAssign);
+	overall_meta_data[L"global_id"] = ws_assign;
+
+
 	
 	// -----------------------------------------------end: get metadata from meta.meas---------------------------------------------
 
@@ -355,6 +371,7 @@ map <wstring, wstring> construct_overall_meta_data(mxArray *pMxArrayMeta) {
 	// mxGetN(pMxArrayMiddle) is 2
 	pMxArrayMiddle = mxGetField(pMxArrayMeta, 0, "sw");
 
+	/*
 	// check the dimension of meta.sw dynamically 
 	int dimension_sw = mxGetN(pMxArrayMiddle);
 	for (int i = 0; i < dimension_sw; i++) {
@@ -362,6 +379,21 @@ map <wstring, wstring> construct_overall_meta_data(mxArray *pMxArrayMeta) {
 		ws_assign = mat_read_string(pMxArrayAssign);
 		overall_meta_data[L"sw_name" + to_wstring(i)] = ws_assign;
 	}
+	*/
+
+	const char *fieldname;
+
+	int nfields_sw = mxGetNumberOfFields(pMxArrayMiddle);
+	for (int i = 0; i < nfields_sw; i++) {
+		fieldname = mxGetFieldNameByNumber(pMxArrayMiddle, i);
+		cout << "-------------------------crt fieldname in sw:" << fieldname << endl;
+		pMxArrayAssign = mxGetField(pMxArrayMiddle, 0, fieldname);
+		pMxArrayAssign = mxGetField(pMxArrayAssign, 0, "name");
+		ws_assign = mat_read_string(pMxArrayAssign);
+		overall_meta_data[L"sw_name" + to_wstring(i)] = ws_assign;
+	}
+
+
 	/*
 	pMxArrayAssign = mxGetField(pMxArrayMiddle, 0, "name");
 	ws_assign = mat_read_string(pMxArrayAssign);
@@ -605,7 +637,7 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 						continue;
 					}
 					// check if current column corresponds to parameter
-					if (field[current_col].compare(L"param") == 0) {
+					if (field[current_col].compare(L"cond") == 0) {
 						// construct meta_data key name (e.g. conv_VIO)
 						// !!! most important one
 						key_name = L"cond_" + name[current_col];
@@ -618,7 +650,7 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 							}
 						}
 						else if (key_name.compare(L"cond_vio") == 0) {
-							key_name = L"param_VIO";
+							key_name = L"cond_VIO";
 						}
 						// combine conditions
 						cond_str = cond_str + L"_" + test_data[current_col];
@@ -663,13 +695,14 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 				// iterate through each col again for the aux_sequenceNumber
 				// add sequence number for each test case 
 				for (int current_col = 0; current_col < col_array_data; current_col++) {
-					if (field[current_col].compare(L"aux") == 0 && name[current_col].compare(L"SequenceNumber") == 0) {
-						meta_data[L"sequence_number"] = test_data[current_col];
+					if (field[current_col].compare(L"aux") == 0 && name[current_col].compare(L"idx") == 0) {
+						meta_data[L"idx"] = test_data[current_col];
 					}
 				}
 				// add subset id
 				meta_data[L"subset_id"] = ws_id;
 				// map <wstring, wstring> payload;
+
 				// iterate through each col again and for each out
 				// construct dataObject with payload + meta_data
 				for (int current_col = 0; current_col < col_array_data; current_col++) {
@@ -678,7 +711,9 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 					if (name[current_col].empty()) {
 						continue;
 					}
-					if (field[current_col].compare(L"out") == 0) {
+					if (field[current_col].compare(L"out") == 0 || field[current_col].compare(L"aux") == 0) {
+						if (name[current_col].compare(L"idx") == 0)
+							continue;
 						// skip if empty
 						if (test_data[current_col].empty()) {
 							continue;
@@ -696,9 +731,7 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 						scaled_value = test_data[current_col];
 						// !!!!!!!!!! add scale value to the variable of payload 
 						payload[key_name] = scaled_value;
-
 						// save related png and mat waveforms 
-						
 						// if there are matching png files save them to payload
 						file_match_conditions.push_back(L"Report-Picture");
 						vector<wstring> matching_png_files = get_corresponding_files(file_match_conditions, png_files);
@@ -709,7 +742,6 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 							payload[L"png_filename___" + to_wstring(i)] = strrep(matching_png_files[i], '\\', '/');
 						}
 
-
 						// get corresponding .mat files
 						file_match_conditions.push_back(L"Report-waveform");
 						vector<wstring> matching_mat_files = get_corresponding_files(file_match_conditions, mat_wfm_files);
@@ -718,8 +750,7 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 						for (auto i = 0; i < matching_mat_files.size(); i++) {
 							payload[L"mat_filename___" + to_wstring(i)] = strrep(matching_mat_files[i], '\\', '/');
 						}
-						
-
+					
 						// save related comments
 						for (auto i = 0; i < comments.size(); i++) {
 							payload[L"comment___" + to_wstring(i)] = comments[i];
@@ -781,6 +812,18 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 						// mark flag true to inform user
 						if (internal_json.find(key_cond_str) != internal_json.end()) {
 							cond_repetition = true;
+
+							vector<wstring> all_keys;
+							for (auto const& imap : internal_json)
+								all_keys.push_back(imap.first);
+							int rep_times = 0;
+							for (wstring ele : all_keys) {
+								if (ele.find(key_cond_str) != wstring::npos) {
+									rep_times += 1;
+								}
+							}
+							cout << rep_times << endl;
+							key_cond_str = key_cond_str + L'_rep' + to_wstring(rep_times);
 						}
 
 						// store current metaData and payload in internal_json
@@ -836,7 +879,6 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 										}
 									}
 								}
-
 								// get scale, unit
 								tie(scale, unit) = dr.get_unit_scale(limit_struct[L"Unit"]);
 								// hardcode scale 0, because tembo does auto conversion
@@ -910,15 +952,10 @@ bool test_data_reader(mxArray *pMxArrayData, map <wstring, wstring> overall_meta
 		} // finished reading current mat -> while(inf)
 		  // since current csv is done, copy remaining internal json objects into
 		  // data_objects, because new file will have different params
-
-
 		for (map <wstring, map<wstring, map<wstring, wstring>>>::value_type& data_object : internal_json) {
 			data_objects.push_back(data_object.second);
 		}
-
 	}
-	
-
 	//// create recipe payload
 	wstring recipe_payload = construct_recipe(configs_struct[L"ReportTemplate"], configs_struct[L"ReportName"], configs_struct[L"Project"]);
 	bool res = dr.json_writer(header_struct, common_meta_data, &data_objects, out_folder_path + L"\\" + configs_struct[L"ReportName"] + L".json", recipe_payload);
